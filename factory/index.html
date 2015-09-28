@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Factory Pattern</title>
+    <script type="text/javascript" src="factory.js"></script>
+</head>
+<body>
+<button onClick="createCar()"> Create car </button>
+<button onClick="createTruck()">Create truck</button>
+<div id="consoleOutput" style="margin: auto; width: 1000px; border: darkolivegreen 2px solid;">
+</div>
+<script type="text/javascript">
+    var consoleOuput = document.getElementById("consoleOutput");
+    function createCar(){
+        var car = carFactory.createVehicle( {
+            vehicleType: "car",
+            color: "yellow",
+            doors: 5 } );
+        consoleOuput.innerHTML += "New car <br>";
+
+    }
+
+    function createTruck(){
+        var truck = carFactory.createVehicle( {
+            vehicleType: "truck",
+            color: "yellow",
+            doors: 5 } );
+        consoleOuput.innerHTML += "New truck <br>";
+    }
+
+    // Create an instance of our factory that makes cars
+    var carFactory = new VehicleFactory();
+
+</script>
+</body>
+</html>

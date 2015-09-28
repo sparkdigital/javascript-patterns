@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Observer Pattern</title>
+    <script type="text/javascript" src="observer.js"></script>
+</head>
+<body>
+    <button id="addNewObserver">Increase counter</button>
+
+    <div id="observersContainer">
+
+    </div>
+
+    <script type="text/javascript">
+        var clickCounter = 0;
+        function extend( obj, extension ){
+            for ( var key in extension ){
+                obj[key] = extension[key];
+            }
+        }
+
+        var addBtn = document.getElementById( "addNewObserver" ),
+            container = document.getElementById( "observersContainer" );
+
+        extend( addBtn, new Subject() );
+        addBtn.onclick = function(){
+            clickCounter++;
+            addBtn.notify("Click #" + clickCounter);
+        };
+        addBtn.addObserver(container);
+
+        extend( container, new Observer() );
+            container.update = function( value ){
+            container.innerHTML += value + "<br>";
+        };
+
+    </script>
+</body>
+</html>

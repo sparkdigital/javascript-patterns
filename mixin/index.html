@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Mixin</title>
+    <script type="text/javascript" src="mixin.js"></script>
+    <script type="text/javascript">
+        augment( Car, Mixin, "driveForward", "driveBackward" );
+        var myCar = new Car({
+            model: "Ford Escort",
+            color: "blue"
+        });
+        myCar.driveForward();
+        myCar.driveBackward();
+        augment( Car, Mixin );
+        var mySportsCar = new Car({
+            model: "Porsche",
+            color: "red"
+        });
+        mySportsCar.driveSideways();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

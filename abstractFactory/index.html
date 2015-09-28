@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Factory Pattern</title>
+    <script type="text/javascript" src="abstractFactory.js"></script>
+</head>
+<body>
+<button onClick="createCar()"> Create car </button>
+<button onClick="createTruck()">Create truck</button>
+<div id="consoleOutput" style="margin: auto; width: 1000px; border: darkolivegreen 2px solid;">
+</div>
+<script type="text/javascript">
+    var consoleOuput = document.getElementById("consoleOutput");
+    function createCar(){
+        // Instantiate a new car based on the abstract vehicle type
+        var car = abstractVehicleFactory.getVehicle( "car", {
+            color: "lime green",
+            state: "like new" } );
+        consoleOuput.innerHTML += "New car <br>";
+
+    }
+
+    function createTruck(){
+        // Instantiate a new truck in a similar manner
+        var truck = abstractVehicleFactory.getVehicle( "truck", {
+            wheelSize: "medium",
+            color: "neon yellow" } );
+        consoleOuput.innerHTML += "New truck <br>";
+    }
+    abstractVehicleFactory.registerVehicle( "car", Car );
+    abstractVehicleFactory.registerVehicle( "truck", Truck );
+
+</script>
+</body>
+</html>
